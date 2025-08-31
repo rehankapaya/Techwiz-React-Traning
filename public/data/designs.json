@@ -1,0 +1,57 @@
+
+[
+  {
+    "id": 1,
+    "name": "Serene Living Room",
+    "category": "Living Room",
+    "style": "Contemporary",
+    "cost": 4500,
+    "imageUrl": "https://picsum.photos/seed/design1/800/600",
+    "description": "A calm and inviting living room featuring neutral tones, comfortable seating, and plenty of natural light. Perfect for relaxation and socializing.",
+    "products": [1, 5, 9, 13, 17],
+    "reviews": [
+      { "user": "Alice", "rating": 5, "comment": "Absolutely beautiful and so peaceful." },
+      { "user": "Bob", "rating": 4, "comment": "Great design, though I wish it had more color." }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Chef's Dream Kitchen",
+    "category": "Kitchen",
+    "style": "Elegant",
+    "cost": 8200,
+    "imageUrl": "https://picsum.photos/seed/design2/800/600",
+    "description": "A highly functional and elegant kitchen with marble countertops, state-of-the-art appliances, and ample storage space. Designed for the serious home cook.",
+    "products": [21, 22, 23],
+    "reviews": [
+      { "user": "Charlie", "rating": 5, "comment": "My dream kitchen brought to life!" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Cozy Bedroom Retreat",
+    "category": "Bedroom",
+    "style": "Contemporary",
+    "cost": 3200,
+    "imageUrl": "https://picsum.photos/seed/design3/800/600",
+    "description": "A warm and cozy bedroom that serves as a personal sanctuary. Features a plush bed, soft lighting, and personal touches.",
+    "products": [7, 11, 15, 19],
+    "reviews": [
+      { "user": "David", "rating": 5, "comment": "I never want to leave my bedroom now." },
+      { "user": "Eve", "rating": 5, "comment": "The perfect blend of comfort and style." }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Modern Spa Bathroom",
+    "category": "Bathroom",
+    "style": "Elegant",
+    "cost": 6500,
+    "imageUrl": "https://picsum.photos/seed/design4/800/600",
+    "description": "Transform your bathroom into a spa-like oasis with a walk-in shower, freestanding tub, and sleek, modern fixtures.",
+    "products": [25, 26, 28, 29],
+    "reviews": [
+      { "user": "Frank", "rating": 5, "comment": "Feels like a luxury hotel." }
+    ]
+  }
+]

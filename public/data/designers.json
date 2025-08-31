@@ -1,0 +1,43 @@
+
+[
+  {
+    "id": 1,
+    "name": "Elena Vance",
+    "specialty": "Modern & Minimalist",
+    "rate": 150,
+    "experience": "12 years",
+    "imageUrl": "https://picsum.photos/seed/designer1/400/400",
+    "email": "elena.vance@homestyler.com",
+    "phone": "555-0101"
+  },
+  {
+    "id": 2,
+    "name": "Marcus Reid",
+    "specialty": "Industrial & Urban",
+    "rate": 125,
+    "experience": "8 years",
+    "imageUrl": "https://picsum.photos/seed/designer2/400/400",
+    "email": "marcus.reid@homestyler.com",
+    "phone": "555-0102"
+  },
+  {
+    "id": 3,
+    "name": "Sophia Chen",
+    "specialty": "Bohemian & Eclectic",
+    "rate": 135,
+    "experience": "10 years",
+    "imageUrl": "https://picsum.photos/seed/designer3/400/400",
+    "email": "sophia.chen@homestyler.com",
+    "phone": "555-0103"
+  },
+  {
+    "id": 4,
+    "name": "Liam Gallagher",
+    "specialty": "Contemporary & Elegant",
+    "rate": 180,
+    "experience": "15 years",
+    "imageUrl": "https://picsum.photos/seed/designer4/400/400",
+    "email": "liam.gallagher@homestyler.com",
+    "phone": "555-0104"
+  }
+]
