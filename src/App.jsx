@@ -8,7 +8,7 @@ import ProductPage from './pages/ProductPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import FeedbackPage from './pages/FeedbackPage'
-
+import './App.css'
 export default function App() {
 
   const router = createBrowserRouter([
@@ -25,7 +25,7 @@ export default function App() {
       element:<DesignersPages/>
     },
     {
-      path:'/product',
+      path:'/products',
       element:<ProductPage/>
     },
     {

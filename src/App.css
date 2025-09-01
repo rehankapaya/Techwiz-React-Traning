@@ -1,0 +1,20 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.designer-card{
+    margin: 20px auto;
+}
+.designer-card,
+.designer-card-body {
+  display: flex;
+}
+
+
+.designer-card-body> img{
+    width: 150px;
+    border-radius: 50%;
+    margin-right: 30px;
+}
