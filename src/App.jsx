@@ -8,6 +8,7 @@ import ProductPage from './pages/ProductPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import FeedbackPage from './pages/FeedbackPage'
+import ProductDetails from './pages/nestedpages/ProductDetails'
 import './App.css'
 export default function App() {
 
@@ -27,6 +28,10 @@ export default function App() {
     {
       path:'/products',
       element:<ProductPage/>
+    },
+    {
+      path:'/details',
+      element:<ProductDetails/>
     },
     {
       path:'/about',

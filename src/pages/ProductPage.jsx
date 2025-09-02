@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import NavbarComponent from '../components/NavbarComponent'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductPage() {
 
-
+  const navigate = useNavigate()
   const [products, setproducts] = useState([])
 
   function fetchProducts() {
@@ -49,7 +50,7 @@ export default function ProductPage() {
                   </Card.Text>
 
                   <h6>$ {p.price}</h6>
-                  <Button variant="primary">Add to Cart</Button>
+                  <Button variant="primary" onClick={() => navigate('/details',{state:p})}>Details</Button>
                 </Card.Body>
               </Card>
             )
