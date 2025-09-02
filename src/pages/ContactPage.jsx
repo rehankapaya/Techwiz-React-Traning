@@ -14,7 +14,7 @@ export default function ContactPage() {
       username,
       email,
       comments,
-      policyAccepted:acceptPolicy
+      policyAccepted: acceptPolicy
     }
     console.log(newFeedback)
 
@@ -28,22 +28,32 @@ export default function ContactPage() {
 
 
   return (
-    <div>
-      <NavbarComponent />
+    <>
+    <NavbarComponent/>
+    <div className="container mt-5">
+      <h2>Contact Us</h2>
+      <div className="mb-3">
+        <label className="form-label">Username</label>
+        <input type="text" className="form-control" value={username} placeholder='Username' onChange={(e) => setusername(e.target.value)} />
+      </div>
 
-      ContactPage
+      <div className="mb-3">
+        <label className="form-label">Email</label>
+        <input type="email" className="form-control" value={email} placeholder='Enter Email' onChange={(e) => setemail(e.target.value)} />
+      </div>
 
-      <br />
+      <div className="form-check mb-3">
+        <input type="checkbox" className="form-check-input" checked={acceptPolicy} onChange={(e) => setacceptpolicy(e.target.checked)} />
+        <label className="form-check-label">Accept Policy</label>
+      </div>
 
-      <input type="text" value={username} placeholder='username' onChange={(e) => setusername(e.target.value)} />
-      <br />
-      <input type="email" value={email} placeholder='Enter Email' onChange={(e) => setemail(e.target.value)} />
-      <br />
-      Accept Policy <input type="checkbox" name="policy" checked={acceptPolicy} id="" onChange={(e)=>setacceptpolicy(e.target.checked)} />
-      <textarea name="" value={comments} placeholder='Enter Comments' onChange={(e) => setcomments(e.target.value)} id=""></textarea>
+      <div className="mb-3">
+        <label className="form-label">Comments</label>
+        <textarea className="form-control" value={comments} placeholder='Enter Comments' onChange={(e) => setcomments(e.target.value)} rows="4"></textarea>
+      </div>
 
-
-      <button onClick={handleSubmit}>Submit</button>
+      <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
     </div>
+    </>
   )
 }
