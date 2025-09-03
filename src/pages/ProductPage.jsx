@@ -3,36 +3,40 @@ import NavbarComponent from '../components/NavbarComponent';
 import { useNavigate } from 'react-router-dom';
 
 export default function ProductPage() {
-  const navigate = useNavigate();
-  const [serachtext, setSearchText] = useState('')
+  const navigate = useNavigate()
   const [products, setproducts] = useState([]);
-  const [filterProducts, setFilterProducts] = useState([])
-  const [pricerange, setPriceRange] = useState([0, 10000])
-  const [categories, setCategories] = useState([])
+  const [filteredProducts, setfilteredProducts] = useState([])
+  const [searchtext, setsearchtext] = useState('')
+  const [categories, setcategories] = useState([])
 
+  console.log(searchtext)
   function fetchProducts() {
     fetch("/data/products.json")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setproducts(data);
-        
+
+        let uniqueCat = [...new Set(data.map((p) => p.category))]
+        console.log(uniqueCat)
+        setcategories(uniqueCat)
+
       })
       .catch((err) => console.log(err));
   }
 
 
-  const handleSearch = (value) => {
 
-    let filterdata = products.filter((x) => x.name.toLowerCase().includes(value.toLowerCase()))
+  function searchByInput() {
+    let filterdata = products.filter((p) => p.name.toLowerCase().includes(searchtext.toLowerCase()))
     console.log(filterdata)
-
-    setFilterProducts(filterdata)
-
+    setfilteredProducts(filterdata)
   }
 
-  const handleCategorySearch=(category)=>{
-    
+  function searchByCategory(cat){
+    let filterdata = products.filter((p)=>p.category==cat)
+    console.log(filterdata)
+    setfilteredProducts(filterdata)
   }
 
 
@@ -41,13 +45,10 @@ export default function ProductPage() {
   }, []);
 
 
-  useEffect(() => {
-    let filterdata = products.filter((x) => x.price <= pricerange[1])
-    console.log(filterdata)
-    setFilterProducts(filterdata)
 
-    console.log(pricerange)
-  }, [pricerange])
+  useEffect(() => {
+    searchByInput()
+  }, [searchtext])
 
   return (
     <div>
@@ -62,15 +63,21 @@ export default function ProductPage() {
               className="form-control"
               placeholder="Search Product..."
               aria-label="Search Product"
-              onChange={(e) => handleSearch(e.target.value)}
+              onChange={(e) => setsearchtext(e.target.value)}
             />
           </div>
 
           {/* Category Select */}
           <div className="col-md-4">
-            <select className="form-select" onChange={(e)=>handleCategorySearch(e.target.value)} aria-label="Category select">
-              
-              
+            <select className="form-select" 
+            onChange={(e)=>searchByCategory(e.target.value)}
+            aria-label="Category select">
+
+              {
+                categories.map((p) => {
+                  return <option value={p}>{p}</option>
+                })
+              }
             </select>
           </div>
 
@@ -85,52 +92,59 @@ export default function ProductPage() {
               min="0"
               max="10000"
               id="priceRange"
-              onChange={(e) => {
-                document.getElementById('priceValue').innerText = e.target.value;
-                setPriceRange([0, parseInt(e.target.value)])
-              }}
             />
           </div>
         </div>
       </div>
 
 
+
       <div className="container mt-5">
-        <div className="row">
-          {!filterProducts.length > 0 && products.map((p, idx) => {
-            return (<div className="col-md-4 mb-4" key={idx}>
-              <div className="card h-100 shadow-sm">
-                <img src={p.imageUrl} className="card-img-top" alt={p.name} />
-                <div className="card-body d-flex flex-column">
-                  <h5 className="card-title">{p.name}</h5>
-                  <h6 className="text-muted">{p.category}</h6>
+        <div  className="row">
+          {filteredProducts.length > 0 ?
 
-                  <div className="mb-2" style={{ color: 'gold' }}>
-                    {p.rating} <i className="fa-solid fa-star"></i>
-                  </div>
+            (<>
+                <h1>Filterd Products</h1>
+              <div style={{display:"flex",flexWrap:'wrap'}}>
+                {
+                  filteredProducts.map((p) => {
+                    return (
+                      <>
+                        <div className="col-md-4 mb-4" key={p.id}>
+                          <div className="card h-100 shadow-sm">
+                            <img src={p.imageUrl} className="card-img-top" alt={p.name} />
+                            <div className="card-body d-flex flex-column">
+                              <h5 className="card-title">{p.name}</h5>
+                              <h6 className="text-muted">{p.category}</h6>
 
-                  <p className="card-text flex-grow-1">{p.description}</p>
+                              <div className="mb-2" style={{ color: 'gold' }}>
+                                {p.rating} <i className="fa-solid fa-star"></i>
+                              </div>
 
-                  <h6 className="mb-3">$ {p.price}</h6>
+                              <p className="card-text flex-grow-1">{p.description}</p>
 
-                  <button
-                    className="btn btn-primary mt-auto"
-                    onClick={() => navigate('/details', { state: p })}
-                  >
-                    Details
-                  </button>
-                </div>
+                              <h6 className="mb-3">$ {p.price}</h6>
+
+                              <button
+                                className="btn btn-primary mt-auto"
+                                onClick={() => navigate('/details', { state: p })}
+                                >
+                                Details
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )
+                  })
+                }
               </div>
-            </div>)
-          }
-          )}
-        </div>
-        <div className="row">
-          <h1>Filtered Products</h1>
-          {filterProducts.length > 0 && filterProducts.map((p, idx) => {
-            return (
+                </>
+            )
 
-              <div className="col-md-4 mb-4" key={idx}>
+            :
+            products.map((p) => {
+              return (<div className="col-md-4 mb-4" key={p.id}>
                 <div className="card h-100 shadow-sm">
                   <img src={p.imageUrl} className="card-img-top" alt={p.name} />
                   <div className="card-body d-flex flex-column">
@@ -153,11 +167,10 @@ export default function ProductPage() {
                     </button>
                   </div>
                 </div>
-              </div>
-            )
-          })
-          }
+              </div>)
+            })}
         </div>
+
       </div>
     </div>
   );
