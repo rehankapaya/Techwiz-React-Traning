@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NavbarComponent from '../components/NavbarComponent';
+import FooterComponent from '../components/FooterComponent';
 
 export default function DesignsPages() {
   const [designs, setdesigns] = useState([]);
@@ -46,6 +47,8 @@ export default function DesignsPages() {
           ))}
         </div>
       </div>
+
+      <FooterComponent/>
     </div>
   );
 }

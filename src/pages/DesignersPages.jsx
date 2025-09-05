@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NavbarComponent from '../components/NavbarComponent';
+import FooterComponent from '../components/FooterComponent';
 
 export default function DesignersPages() {
   const [designers, setdesigners] = useState([]);
@@ -75,6 +76,8 @@ export default function DesignersPages() {
           </div>
         ))}
       </div>
+
+      <FooterComponent/>
     </div>
   );
 }

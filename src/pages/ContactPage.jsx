@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import NavbarComponent from '../components/NavbarComponent'
+import FooterComponent from '../components/FooterComponent'
 
 export default function ContactPage() {
   const [email, setemail] = useState('')
@@ -54,6 +55,8 @@ export default function ContactPage() {
 
       <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
     </div>
+
+    <FooterComponent/>
     </>
   )
 }

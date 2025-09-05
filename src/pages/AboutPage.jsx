@@ -1,5 +1,6 @@
 import React from 'react'
 import NavbarComponent from '../components/NavbarComponent'
+import FooterComponent from '../components/FooterComponent'
 
 export default function AboutPage() {
   return (
@@ -29,6 +30,8 @@ export default function AboutPage() {
           Join our growing community of home lovers and get inspired to create a space that truly feels like yours.
         </p>
       </div>
+
+      <FooterComponent/>
     </div>
   )
 }

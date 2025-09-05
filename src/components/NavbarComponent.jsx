@@ -35,7 +35,7 @@ function NavbarComponent() {
                 <Link className="nav-link" to="/feedback">Feedback</Link>
 
               </li>
-              <li class="nav-item dropdown">
+              {/* <li class="nav-item dropdown">
                 <Link class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
                 </Link>
@@ -45,7 +45,7 @@ function NavbarComponent() {
                   <li><hr class="dropdown-divider" /></li>
                   <li><Link class="dropdown-item" href="#">Something else here</Link></li>
                 </ul>
-              </li>
+              </li> */}
               <li>
                 <Link className="nav-link" to="/about">About</Link>
 

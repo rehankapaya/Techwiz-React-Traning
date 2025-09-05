@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NavbarComponent from '../components/NavbarComponent';
 import { useNavigate } from 'react-router-dom';
+import FooterComponent from '../components/FooterComponent';
 
 export default function ProductPage() {
   const navigate = useNavigate()
@@ -248,6 +249,8 @@ export default function ProductPage() {
         </div>
 
       </div>
+
+      <FooterComponent/>
     </div>
   );
 }
